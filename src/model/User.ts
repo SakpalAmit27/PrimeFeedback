@@ -1,4 +1,4 @@
-import mongoose , {Schema,Document} from "mongoose";
+import mongoose , {Schema,Document, Mongoose} from "mongoose";
 
 // whenever typescript is used we have to define the type here // 
 
@@ -71,3 +71,5 @@ const UserSchema : Schema<User> = new Schema ({
     messages:[MessageSchema]
 
 })
+
+const UserModel = (mongoose.models.User as mongoose.Model <User>) 
