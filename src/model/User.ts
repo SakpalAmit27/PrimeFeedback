@@ -32,3 +32,20 @@ export interface User extends Document{
     message:Message[]
 
 }
+
+const UserSchema : Schema<User> = new Schema ({
+
+    username:{
+        type:String,
+        required:[true,"Username is required"],
+        trim:true,
+        unique:true
+    },
+    email:{
+        type:String, 
+        required:[true,"Email is required"],
+        unique:true,
+        match:[/.+\@.+\..+/,'please use a valid email address']
+    }
+
+})
