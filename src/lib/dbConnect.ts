@@ -22,4 +22,12 @@ async function dbConnect():Promise<void>{
         return
     }
 
+    // connecting to the db (using try and catch)
+
+    try{
+        await mongoose.connect()
+    }catch(error){
+
+    }
+
 }
