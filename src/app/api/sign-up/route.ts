@@ -8,5 +8,20 @@ import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
 
 
 export async function POST(request : Request){
-    
+    await dbConnect(); 
+
+    try{
+        
+    }catch(error){
+        console.error(`Error registering the user : ${error}`)
+        return Response.json(
+            {
+                success:false,
+                message:"Error registering user"
+            },
+            {
+                status:500
+            }
+        )
+    }
 }
