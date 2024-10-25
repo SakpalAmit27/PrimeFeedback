@@ -37,7 +37,7 @@ export async function POST(request : Request){
         })
        }
        else{
-        
+        const hashedPassword = await bcrypt.hash(password,10)
        }
 
     }catch(error){
