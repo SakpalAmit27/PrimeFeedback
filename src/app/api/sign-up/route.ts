@@ -28,6 +28,8 @@ export async function POST(request : Request){
 
        const existingUserByEmail = await UserModel.findOne({email})
 
+       const VerifyCode = Math.floor(100000 + Math.random() * 900000).toString()
+
        if(existingUserByEmail){
         return Response.json({
             success:false,
@@ -41,6 +43,19 @@ export async function POST(request : Request){
         const expiryDate = new Date(); 
 
         expiryDate.setHours(expiryDate.getHours() + 1)
+
+
+        // saving our user here // 
+        new UserModel({
+            username, 
+            email, 
+            password:hashedPassword, 
+            verifyCode:VerifyCode,
+            verifyCodeExpiry:expiryDate,
+            isVerified:false,
+            isAcceptingMessage:true,
+            messages:[]
+        })
        }
 
     }catch(error){
