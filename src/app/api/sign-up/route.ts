@@ -46,7 +46,7 @@ export async function POST(request : Request){
 
 
         // saving our user here // 
-        new UserModel({
+        const newUser = new UserModel({
             username, 
             email, 
             password:hashedPassword, 
@@ -56,7 +56,11 @@ export async function POST(request : Request){
             isAcceptingMessage:true,
             messages:[]
         })
+
+        await newUser.save();
        }
+
+    
 
     }catch(error){
         console.error(`Error registering the user : ${error}`)
