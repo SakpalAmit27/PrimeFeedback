@@ -19,7 +19,12 @@ export async function POST(request : Request){
             isVerified:true
         })
 
-        if(exisitingUserVerifiedByUsername)
+        if(exisitingUserVerifiedByUsername){
+            return Response.json({
+                success:false, 
+                message:"Username is already taken"
+            },{status:400})
+        }
 
     }catch(error){
         console.error(`Error registering the user : ${error}`)
