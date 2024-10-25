@@ -12,7 +12,14 @@ export async function sendVerificationEmail(
     verifyCode:string
 ):Promise<ApiResponse>{
     try{
-
+    // took this from docs of resend // 
+    await resend.emails.send({
+        from: 'Acme <onboarding@resend.dev>',
+        to: ['delivered@resend.dev'],
+        subject: 'hello world',
+        html: '<p>it works!</p>',
+    });
+    // ended here // 
         return {success:true,message:'Verification email sent successfully'}
 
     }catch(emailError){
