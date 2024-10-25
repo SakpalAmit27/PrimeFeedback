@@ -38,6 +38,9 @@ export async function POST(request : Request){
        }
        else{
         const hashedPassword = await bcrypt.hash(password,10)
+        const expiryDate = new Date(); 
+
+        expiryDate.setHours(expiryDate.getHours() + 1)
        }
 
     }catch(error){
