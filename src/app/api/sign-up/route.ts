@@ -26,6 +26,20 @@ export async function POST(request : Request){
             },{status:400})
         }
 
+       const existingUserByEmail = await UserModel.findOne({email})
+
+       if(existingUserByEmail){
+        return Response.json({
+            success:false,
+            message:"Email is already registered"
+        },{
+            status:400
+        })
+       }
+       else{
+        
+       }
+
     }catch(error){
         console.error(`Error registering the user : ${error}`)
         return Response.json(
