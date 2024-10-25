@@ -11,7 +11,14 @@ export async function POST(request : Request){
     await dbConnect(); 
 
     try{
-        
+        // taking the username email and pass from user through request // 
+        const {username,email,password} = await request.json();
+
+        const exisitingUserVerifiedByUsername = UserModel.find({
+            username,
+            isVerified:true
+        })
+
     }catch(error){
         console.error(`Error registering the user : ${error}`)
         return Response.json(
