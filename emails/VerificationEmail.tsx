@@ -9,6 +9,7 @@ import {
     Text,
     Button,
   } from '@react-email/components';
+  // fixed the above react-email error //
   
   interface VerificationEmailProps {
     username: string;
