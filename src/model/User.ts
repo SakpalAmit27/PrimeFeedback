@@ -1,4 +1,4 @@
-import mongoose , {Schema,Document, Mongoose} from "mongoose";
+import mongoose , {Schema,Document} from "mongoose";
 
 // whenever typescript is used we have to define the type here // 
 
