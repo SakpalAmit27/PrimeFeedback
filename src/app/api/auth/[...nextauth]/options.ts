@@ -46,13 +46,17 @@ export const authOptions: NextAuthOptions = {
         })
     ],
     callbacks:{
-        async session({session,user,token}){
+        async session({session,token}){
             return session
         },
-        async jwt({token,user,account,profile,isNewUser}){
+        async jwt({token,user){
+
+            if(user){
+                token._id = user._id?.toString()
+            }
             return token
-        }
-    },
+        },
+    }, 
     pages:{
         signIn:'/sign-in' 
     },
