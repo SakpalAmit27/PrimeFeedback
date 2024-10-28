@@ -49,7 +49,7 @@ export const authOptions: NextAuthOptions = {
         async session({session,token}){
             return session
         },
-        async jwt({token,user){
+        async jwt({token,user}){
 
             if(user){
                 token._id = user._id?.toString()
