@@ -10,4 +10,24 @@ declare module "next-auth"{
         username?:string
 
     }
+
+    interface Session{
+        user:{
+            _id?:string
+            isVerified:string
+            isAcceptingMessages?:boolean
+            username?:string
+
+
+        } & DefaultSession['user']
+    }
+}
+
+declare module 'next-auth/jwt'{
+    interface JWT{
+        _id?:string
+        isVerified:string
+        isAcceptingMessages?:boolean
+        username?:string
+    }
 }
