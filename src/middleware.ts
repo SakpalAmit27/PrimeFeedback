@@ -7,6 +7,14 @@ export function middleware(request: NextRequest) {
 }
  
 // See "Matching Paths" below to learn more
+
+// this config is like a file it will run the middlware were we mention it inside path 
 export const config = {
-  matcher:'/sign-in',
+    matcher:[
+        '/sign-in',
+        'sign-up',
+        '/',
+        '/dashboard/:path*',
+        '/verify/:path*'
+    ]
 }
